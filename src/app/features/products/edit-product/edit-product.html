@@ -1,1 +1,4 @@
-<p>edit-product works!</p>
+<app-page-title
+  [title]="'Edit User'" />
+
+<app-product-form [product]="product" (productFormChanged)="this.update($event)" />
