@@ -1,0 +1,24 @@
+<app-page-title [title]="'Here is where you can see our products'" />
+
+<app-product-filters (productFilterChanged)="getFilteredProducts($event)" />
+
+<div class="list-container">
+  @for(product of productList; track product){
+  <div class="card">
+    <div>
+      <span>Product #{{ product.id }}</span>
+      <div class="details">
+        <span>Code: {{ product.code }}</span>
+        <span>Name: {{ product.nom }}</span>
+      </div>
+    </div>
+    <div class="actions">
+      <a (click)="view(product.id)">View</a>
+      <a (click)="edit(product.id)">Edit</a>
+      <a (click)="delete(product.id)">Delete</a>
+    </div>
+  </div>
+  } @empty {
+  <span>No product information found...</span>
+  }
+</div>

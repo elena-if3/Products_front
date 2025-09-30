@@ -1,0 +1,39 @@
+nav {
+  height: 4rem;
+  border: 0.1rem solid rgb(190, 42, 42);
+  margin-bottom: 2rem;
+}
+
+ul {
+  height: 4rem;
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1.8rem;
+  background: indianred;
+}
+
+li {
+  height: 4rem;
+  margin: 0;
+  text-decoration: none;
+  padding: 0.8rem 0;
+}
+
+li > a {
+  height: 4rem;
+  margin: 0;
+  text-decoration: none;
+  padding: 0.8rem 2.5rem;
+  color: whitesmoke;
+}
+
+li > a.active {
+  color: antiquewhite;
+  font-weight: 600;
+}
+
+li > a:hover {
+  background-color: rgb(190, 42, 42);
+}

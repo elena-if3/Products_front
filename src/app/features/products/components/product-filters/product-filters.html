@@ -1,0 +1,29 @@
+<div #productFilters [formGroup]="productFilterForm" class="filters">
+  @let c = productFilterForm.controls['code']; @let n = productFilterForm.controls['nom']; @let k =
+  productFilterForm.controls['keywords'];
+
+  <div class="form-fields">
+    <div class="form-group column">
+      <label for="code">Code</label>
+      <input type="text" formControlName="code" />
+      @if(c.invalid && (c.dirty || c.touched)){
+      <span class="error">Code not valid!</span>
+      }
+    </div>
+    <div class="form-group column">
+      <label for="nom">Name</label>
+      <input type="text" formControlName="nom" />
+      @if(n.invalid && (n.dirty || n.touched)){
+      <span class="error">Name not valid!</span>
+      }
+    </div>
+    <div class="form-group column">
+      <label for="keywords">Keywords</label>
+      <input type="text" formControlName="keywords" />
+      @if(k.invalid && (k.dirty || k.touched)){
+      <span class="error">Keywords not valid!</span>
+      }
+    </div>
+    <button (click)="submitForm()">Search</button>
+  </div>
+</div>
