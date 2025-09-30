@@ -11,7 +11,7 @@ import {
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductFormFactory } from '../../form/productForm.factory';
 import { Product } from '../../form/interfaces/product.interface';
-import { hasMinLengthError, isRequired } from '../../../../core/tools/formValidator.validator';
+import { hasMaxLengthError, hasMinLengthError, isRequired } from '../../../../core/tools/formValidator.validator';
 
 @Component({
   selector: 'app-product-form',
@@ -45,4 +45,5 @@ export class ProductForm implements OnInit, OnChanges {
 
   protected readonly isRequired = isRequired;
   protected readonly hasMinLengthError = hasMinLengthError;
+  protected readonly hasMaxLengthError = hasMaxLengthError;
 }

@@ -1,5 +1,9 @@
 <div [formGroup]="productForm" class="form">
   @let c = productControls.code;
+  @let n = productControls.nom;
+  @let d = productControls.nom;
+  @let k = productControls.nom;
+  @let kc = productControls.nom;
 
   <div class="form-group column">
     <div class="form-fields">
@@ -12,7 +16,47 @@
       }
     </div>
     <div class="form-fields">
-      <label for=""></label>
+      <label for="nom">Name</label>
+      <input formControlName="nom" />
+      @if(isRequired(n)){
+        <span class="error">Name required!</span>
+      }
+      @if(hasMinLengthError(n)){
+      <span class="error">Name must have at least 4 chars!</span>
+      }
     </div>
+    <div class="form-fields">
+      <label for="description">Description</label>
+      <input formControlName="description" />
+      @if(isRequired(d)){
+        <span class="error">Description required!</span>
+      }
+      @if(hasMinLengthError(d)){
+      <span class="error">Description must have at least 10 chars!</span>
+      }
+    </div>
+    <div class="form-fields">
+      <label for="keywords">Keywords</label>
+      <input formControlName="keywords" />
+      @if(hasMinLengthError(k)){
+      <span class="error">Keywords must have at least 3 chars!</span>
+      }
+    </div>
+    <div class="form-fields">
+      <label for="kcal">Kcal</label>
+      <input formControlName="kcal" />
+      @if(isRequired(kc)){
+        <span class="error">Kcal required!</span>
+      }
+      @if(hasMinLengthError(kc)){
+      <span class="error">Keywords must have at least 1 digit!</span>
+      }
+      @if(hasMaxLengthError(kc)){
+      <span class="error">Keywords must have 4 digits max!</span>
+      }
+    </div>
+  </div>
+  <div class="form-group">
+    <button (click)="submitForm()">Send</button>
   </div>
 </div>

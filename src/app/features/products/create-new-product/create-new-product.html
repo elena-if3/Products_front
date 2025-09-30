@@ -1,1 +1,2 @@
-<p>create-new-product works!</p>
+<app-page-title [title]="'Here is where you can insert a new product'" />
+<app-product-form (productFormChanged)="create($event)" />
