@@ -19,9 +19,17 @@ export class ProductService {
   }
 
   getFiltered(filters: ProductFilter): Promise<ProductModel[]> {
+    //on creée un objet partiel de type MonType
+    const params : Partial<ProductFilter> = {};
+
+    //Si le filtre contient une donnée pour un clé précise, on la rajouter aux params
+    if(filters.code) params.code = filters.code;
+    if(filters.nom) params.nom = filters.nom;
+    if(filters.keywords) params.keywords = filters.keywords;
+
     return firstValueFrom(
       this.http
-        .get<any>(`${BASE_URL}/products`, { params: { ...filters } })
+        .get<any>(`${BASE_URL}/products`, { params })
         .pipe(map((r) => r.data))
     );
   }
